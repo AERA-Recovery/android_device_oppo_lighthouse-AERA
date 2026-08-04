@@ -9,9 +9,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/twrp_infiniti.mk
+    $(LOCAL_DIR)/twrp_lighthouse.mk
 
 COMMON_LUNCH_CHOICES := \
-    twrp_infiniti-user \
-    twrp_infiniti-userdebug \
-    twrp_infiniti-eng
+    twrp_lighthouse-user \
+    twrp_lighthouse-userdebug \
+    twrp_lighthouse-eng

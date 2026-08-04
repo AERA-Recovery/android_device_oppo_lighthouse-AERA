@@ -8,7 +8,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 
-LOCAL_PATH := device/oneplus/infiniti
+LOCAL_PATH := device/oppo/lighthouse
 
 # Shipping API level
 BOARD_SHIPPING_API_LEVEL := 34
@@ -43,5 +43,5 @@ PRODUCT_EXTRA_RECOVERY_KEYS += \
 PRODUCT_SOONG_NAMESPACES += $(LOCAL_PATH)
 
 # Recovery-specific settings
-$(call inherit-product, $(LOCAL_PATH)/fox_infiniti.mk)
+$(call inherit-product, $(LOCAL_PATH)/fox_lighthouse.mk)
 #

@@ -1,5 +1,5 @@
 <filter-conf>
-    <version>2025090301</version>
+    <version>2025123001</version>
     <isOpen>1</isOpen>
     <filter-name>sys_edge_touch_config</filter-name>
 
@@ -11,7 +11,7 @@
 				<!-- 防误触3.0长按时间参数 -->
 				<command name="finger_hold_matched_hor_support"	value="mod para_V2 finger_hold_matched_hor_support:0"/>
 				<command name="large_top_exit_distance" value="mod para_V2 large_top_exit_distance:480"/>
-				<command name="large_hor_top_x_width" value="mod para_V2 large_hor_long_top_width:870"/>
+				<command name="large_hor_top_x_width" value="mod para_V2 large_hor_long_top_width:350"/>
 				<command name="aft_txdir_node_num_thd" value="mod para_V2 aft_txdir_node_num_thd:7"/>
 			</default>
 
@@ -45,14 +45,14 @@
 					<!-- 防误触3.0长按时间参数 -->
 					<command name="finger_hold_matched_hor_support"	value="mod para_V2 finger_hold_matched_hor_support:1"/>
 					<command name="large_top_exit_distance"	value="mod para_V2 large_top_exit_distance:1500"/>
-					<command name="large_hor_long_top_width"	value="mod para_V2 large_hor_long_top_width:1000"/>
+					<command name="large_hor_top_x_width"	value="mod para_V2 large_hor_long_top_width:1000"/>
 					<command name="aft_txdir_node_num_thd"	value="mod para_V2 aft_txdir_node_num_thd:5"/>
 				</default>
 			</packages>
 			<default>
 
 				<!-- 抖音默认参数 -->
-				<command name="edge_swipe_exit_distance"	value="mod para_V2 edge_swipe_exit_distance:2080"/>
+				<command name="edge_swipe_exit_distance"	value="mod para_V2 edge_swipe_exit_distance:665"/>
 				<command name="large_long_x1_width"	value="mod para_V2 large_long_x1_width:640"/>
 				<command name="large_long_x1_width_recli"	value="mod para_V2 large_long_x1_width_recli:500"/>
 				<command name="fsr_stable_time_thd"              value="mod para_V2 fsr_stable_time_thd:30"/>
@@ -80,7 +80,12 @@
 				<!-- 配置王者荣耀、英雄联盟顶部抑制参数 -->
 				<command name="large_hor_top_x_width"	value="mod para_V2 large_hor_long_top_width:350"/>
 				<command name="large_hor_top_y_height"	value="mod para_V2 large_hor_long_top_height:2270"/>
-				<command name="set_package_type"	value="mod para_V2 set_package_type:0"/>
+				<command name="long_stable_coupling_thd" value="mod para_V2 long_stable_coupling_thd:90"/>
+				<command name="long_start_coupling_thd" value="mod para_V2 long_start_coupling_thd:210"/>
+				<command name="long_strict_stable_coupling_thd" value="mod para_V2 long_strict_stable_coupling_thd:80"/>
+				<command name="fsr_stable_time_thd"              value="mod para_V2 fsr_stable_time_thd:30"/>
+				<command name="large_exit_condition_game_support"	value="mod para_V2 large_exit_condition_game_support:0"/>
+				<command name="long_edge_condition_game_support"	value="mod para_V2 long_edge_condition_game_support:0"/>
 			</default>
 
 			<!--所有修改均为增量修改，所有增量修改都是基于上面的default配置，包括各个package里面的default和activity -->
@@ -96,15 +101,23 @@
 				<!--王者荣耀、英雄联盟顶部抑制参数 -->
 					<command name="large_hor_top_x_width"	value="mod para_V2 large_hor_long_top_width:300"/>
 					<command name="large_hor_top_y_height"	value="mod para_V2 large_hor_long_top_height:1000"/>
-					<command name="set_package_type"	value="mod para_V2 set_package_type:1"/>
+					<command name="long_stable_coupling_thd" value="mod para_V2 long_stable_coupling_thd:220"/>
+					<command name="long_start_coupling_thd" value="mod para_V2 long_start_coupling_thd:400"/>
+					<command name="long_strict_stable_coupling_thd" value="mod para_V2 long_strict_stable_coupling_thd:100"/>
+					<command name="fsr_stable_time_thd"              value="mod para_V2 fsr_stable_time_thd:20"/>
 				</default>
 			</packages>
 			<default>
 
-				<!-- 配置和平精英穿越火线参数 -->
+				<!-- 配置和平精英、穿越火线、三角洲行动参数 -->
 				<command name="large_hor_top_x_width"	value="mod para_V2 large_hor_long_top_width:350"/>
 				<command name="large_hor_top_y_height"	value="mod para_V2 large_hor_long_top_height:2270"/>
-				<command name="set_package_type"	value="mod para_V2 set_package_type:0"/>
+				<command name="long_stable_coupling_thd" value="mod para_V2 long_stable_coupling_thd:90"/>
+				<command name="long_start_coupling_thd" value="mod para_V2 long_start_coupling_thd:210"/>
+				<command name="long_strict_stable_coupling_thd" value="mod para_V2 long_strict_stable_coupling_thd:80"/>
+				<command name="fsr_stable_time_thd"              value="mod para_V2 fsr_stable_time_thd:30"/>
+				<command name="large_exit_condition_game_support"	value="mod para_V2 large_exit_condition_game_support:0"/>
+				<command name="long_edge_condition_game_support"	value="mod para_V2 long_edge_condition_game_support:0"/>
 			</default>
 
 			<!--所有修改均为增量修改，所有增量修改都是基于上面的default配置，包括各个package里面的default和activity -->
@@ -113,14 +126,19 @@
 				<pkg_list>
 					<item name="com.tencent.tmgp.pubgmhd" /> <!--和平精英-->
 					<item name="com.tencent.tmgp.cf" /> <!--穿越火线-->
-					<item name="moe.low.arc" /> <!--Arcaea-->
+					<item name="com.tencent.tmgp.dfm" /> <!--三角洲行动-->
 				</pkg_list>
 				<!--包名列表中，某个包的默认配置，基于外层的default配置增量修改，如果配置了某个包名的场景，必须配置一个如下对应的默认配置 -->
 				<default>
-				<!--王者荣耀、英雄联盟顶部抑制参数 -->
+				<!--和平精英、穿越火线、三角洲行动顶部抑制参数 -->
 					<command name="large_hor_top_x_width"	value="mod para_V2 large_hor_long_top_width:300"/>
 					<command name="large_hor_top_y_height"	value="mod para_V2 large_hor_long_top_height:1000"/>
-					<command name="set_package_type"	value="mod para_V2 set_package_type:2"/>
+					<command name="long_stable_coupling_thd" value="mod para_V2 long_stable_coupling_thd:110"/>
+					<command name="long_start_coupling_thd" value="mod para_V2 long_start_coupling_thd:240"/>
+					<command name="long_strict_stable_coupling_thd" value="mod para_V2 long_strict_stable_coupling_thd:100"/>
+					<command name="fsr_stable_time_thd"              value="mod para_V2 fsr_stable_time_thd:20"/>
+					<command name="large_exit_condition_game_support"	value="mod para_V2 large_exit_condition_game_support:1"/>
+					<command name="long_edge_condition_game_support"	value="mod para_V2 long_edge_condition_game_support:1"/>
 				</default>
 			</packages>
 
@@ -192,6 +210,27 @@
 					<command name="finger_hold_matched_ver_support"	value="mod para_V2 finger_hold_matched_ver_support:0"/>
 				</activity>
 				<activity pkg_name="com.antutu.ABenchMark" activity_name="com.android.module.app.ui.testscreen.activity.MultiTouchActivity">
+					<!--关闭小于预设边缘比例和宽度乘积阈值，进行滑动抑制 -->
+					<command name="edge_sliding_matched_support"	value="mod para_V2 edge_sliding_matched_support:0"/>
+					<!-- 竖屏消点方案，针对检测apk关闭 -->
+					<command name="long_eliminate_point_support"	value="mod para_V2 long_eliminate_point_support:0"/>
+					<!-- 竖屏不同侧抓握方案，针对检测apk关闭 -->
+					<command name="finger_hold_differ_size_support"	value="mod para_V2 finger_hold_differ_size_support:0"/>
+					<!-- 竖屏同一侧抓握消点方案，针对检测apk关闭 -->
+					<command name="finger_hold_matched_ver_support"	value="mod para_V2 finger_hold_matched_ver_support:0"/>
+				</activity>
+				<!--包名列表中，某个包里面某个activity的配置，仍是基于外层的default配置增量修改，而非包名的default修改 -->
+				<activity pkg_name="com.antutu.ABenchMark" activity_name="com.android.module.screentesting.activity.TouchAreaActivity">
+					<!--关闭小于预设边缘比例和宽度乘积阈值，进行滑动抑制 -->
+					<command name="edge_sliding_matched_support"	value="mod para_V2 edge_sliding_matched_support:0"/>
+					<!-- 竖屏消点方案，针对检测apk关闭 -->
+					<command name="long_eliminate_point_support"	value="mod para_V2 long_eliminate_point_support:0"/>
+					<!-- 竖屏不同侧抓握方案，针对检测apk关闭 -->
+					<command name="finger_hold_differ_size_support"	value="mod para_V2 finger_hold_differ_size_support:0"/>
+					<!-- 竖屏同一侧抓握消点方案，针对检测apk关闭 -->
+					<command name="finger_hold_matched_ver_support"	value="mod para_V2 finger_hold_matched_ver_support:0"/>
+				</activity>
+				<activity pkg_name="com.antutu.ABenchMark" activity_name="com.android.module.screentesting.activity.MultiTouchActivity">
 					<!--关闭小于预设边缘比例和宽度乘积阈值，进行滑动抑制 -->
 					<command name="edge_sliding_matched_support"	value="mod para_V2 edge_sliding_matched_support:0"/>
 					<!-- 竖屏消点方案，针对检测apk关闭 -->
@@ -287,7 +326,7 @@
 			<default>
 
 				<!-- 关闭钢琴块2虎口检测 -->
-				<command name="long_start_coupling_thd"	value="mod para_V2 long_start_coupling_thd:179"/>
+				<command name="long_start_coupling_thd"	value="mod para_V2 long_start_coupling_thd:210"/>
 			</default>
 
 			<!--所有修改均为增量修改，所有增量修改都是基于上面的default配置，包括各个package里面的default和activity -->

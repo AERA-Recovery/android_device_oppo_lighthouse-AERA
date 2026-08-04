@@ -8,7 +8,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 
-DEVICE_PATH := device/oneplus/infiniti
+DEVICE_PATH := device/oppo/lighthouse
 
 
 # For building with minimal manifest
@@ -164,7 +164,7 @@ PLATFORM_VERSION_LAST_STABLE := $(PLATFORM_VERSION)
 PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
 BOOT_SECURITY_PATCH := $(PLATFORM_SECURITY_PATCH)
-TW_DEVICE_VERSION := OnePlus_15
+TW_DEVICE_VERSION := Oppo_X9_Ultra
 
 # Vibrator
 TW_SUPPORT_INPUT_AIDL_HAPTICS := true

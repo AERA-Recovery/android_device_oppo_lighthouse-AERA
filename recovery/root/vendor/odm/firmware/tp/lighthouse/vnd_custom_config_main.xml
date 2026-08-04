@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<custom>
+	<version>2026030301</version>
+	<fwk-version>v5.0.0</fwk-version>
+	<modules id="charger" enable="true" hint="support charger detect?">
+		<param name="default" type="bool" hint="charger off: 0, charger on: 1">
+			<value>0</value>
+		</param>
+	</modules>
+
+	<modules id="wl_charger" enable="true" hint="">
+		<param name="default" type="bool" hint="">
+			<value>0</value>
+		</param>
+	</modules>
+
+	<modules id="ifp_en" enable="true" hint="">
+		<param name="default" type="bool" hint="">
+			<value>0</value>
+		</param>
+		<param name="range" type="[u32]" hint="">
+			<value>11520,37776,3200,3200</value>
+		</param>
+	</modules>
+
+	<modules id="fp_active" enable="true" hint="">
+		<param name="default" type="bool" hint="">
+			<value>0</value>
+		</param>
+	</modules>
+
+	<modules id="game_mode" enable="true" hint="">
+		<param name="default" type="u32" hint="">
+			<value>0</value>
+		</param>
+	</modules>
+
+	<modules id="palm" enable="true" hint="">
+		<param name="default" type="bool" hint="">
+			<value>0</value>
+		</param>
+	</modules>
+
+	<modules id="gesture_en" enable="true" hint="">
+		<param name="default" type="bool" hint="">
+			<value>0</value>
+		</param>
+	</modules>
+
+	<modules id="gesture_cfg" enable="true" hint="">
+		<param name="default" type="u32" hint="">
+			<value>128</value>
+		</param>
+	</modules>
+
+	<modules id="gesture_coord" enable="true" hint="">
+		<param name="default" type="bool" hint="">
+			<value>1</value>
+		</param>
+	</modules>
+
+	<modules id="sportify_aod" enable="true" hint="">
+		<param name="default" type="bool" hint="">
+			<value>1</value>
+		</param>
+	</modules>
+
+	<modules id="palm_to_sleep_support" enable="true" hint="">
+		<param name="default" type="bool" hint="">
+			<value>1</value>
+		</param>
+	</modules>
+
+	<modules id="palm_to_sleep_enable" enable="true" hint="">
+		<param name="default" type="u32" hint="">
+			<value>0</value>
+		</param>
+	</modules>
+
+	<modules id="high-frame-rate-time" enable="true" hint="">
+		<param name="default" type="u32" hint="">
+			<value>0</value>
+		</param>
+		<param name="supports" type="[u32]" hint="">
+			<!-- value write to chip -->
+			<value>0 60</value>
+		</param>
+	</modules>
+
+	<modules id="report_rate" enable="true" hint="report_rate of touch, 60, 125, 180, 240, 288, 360.etc">
+		<param name="default" type="bool" hint="">
+			<!-- according to ReportFps -->
+			<value>0</value>
+		</param>
+		<param name="supports" type="[u32]" hint="">
+			<!-- value write to chip -->
+			<!-- index:     0,  1,  2,    3,   4,   5,   6,   7,  8,   9,     10,     11,  12,  13,  14, 15,     16 -->
+			<!-- rate : deflt, 60, 125, 180, 240, 288, 360, 720, 70, 140, 140Ist, 250Ist, 150, 173, 330, 90, 180Ist -->
+			<!-- value:     2,  6,   2,   4,   3,  10,   1,   9,  6,   7,      6,      2,   7,   9,  11, 12,     12 -->
+			<value>2,2,2,4,3,10,2,2,2,2,2,2,8,2,2,2,12</value>
+		</param>
+	</modules>
+
+	<modules id="refresh_report_sync_support" enable="true">
+		<param name="supports" type="[u32]" hint="">
+			<!-- refresh rate support sync -->
+			<value>0,60,120,144</value>
+		</param>
+	</modules>
+
+	<modules id="sensitive-level" enable="true" hint="">
+		<param name="default" type="u32" hint="">
+		<!-- according to SensitiveLevel -->
+			<value>0</value>
+		</param>
+		<param name="supports" type="[u32]" hint="">
+			<value>16,12,10,9,7,5</value>
+		</param>
+	</modules>
+
+	<modules id="smooth-level" enable="true" hint="">
+		<param name="default" type="u32" hint="">
+		<!-- according to SmoothLevel -->
+			<value>0</value>
+		</param>
+		<param name="supports" type="[u32]" hint="">
+			<value>16,25,23,21,18,16</value>
+		</param>
+	</modules>
+
+	<modules id="kernel_grip_handle" enable="true" hint="anti-false-touch grip param debug support">
+		<param name="" type="u32" hint="">
+			<value>1</value>
+		</param>
+	</modules>
+
+	<modules id="kernel_grip_default_para" enable="true" hint="anti-false-touch grip apps param support">
+		<param name="" type="u32" hint="">
+			<value>1</value>
+		</param>
+	</modules>
+
+	<modules id="touch_scene_support" enable="true" hint="touch scene param debug support">
+		<param name="" type="u32" hint="">
+			<value>1</value>
+		</param>
+	</modules>
+
+	<modules id="touch_scene_default_para" enable="true" hint="touch scene apps param support">
+		<param name="" type="u32" hint="">
+			<value>1</value>
+		</param>
+	</modules>
+
+	<modules id="recling_mode" enable="true" hint="anti-false-touch recling mode support">
+		<param name="" type="u32" hint="">
+			<value>0</value>
+		</param>
+	</modules>
+
+	<modules id="temper_send_to_fw_support" enable="true" hint="">
+		<param name="default" type="bool" hint="">
+			<value>1</value>
+		</param>
+	</modules>
+	<modules id="glove_enable_support" enable="true" hint="">
+		<param name="default" type="bool" hint="">
+			<value>0</value>
+		</param>
+	</modules>
+	<modules id="low_battery_capacity" enable="true" hint="">
+		<param name="default" type="bool" hint="">
+			<value>0</value>
+		</param>
+	</modules>
+	<modules id="game_hotzone_support" enable="true" hint="">
+		<param name="default" type="bool" hint="">
+			<value>1</value>
+		</param>
+	</modules>
+	<modules id="game_status_support" enable="true" hint="">
+		<param name="default" type="bool" hint="">
+			<value>1</value>
+		</param>
+	</modules>
+	<modules id="click_sensitive_support" enable="true" hint="">
+		<param name="default" type="bool" hint="">
+			<value>0</value>
+		</param>
+	</modules>
+	<modules id="frame_insert_support" enable="true" hint="">
+		<param name="default" type="bool" hint="">
+			<value>1</value>
+		</param>
+	</modules>
+	<modules id="fp_slide_enroll_support" enable="true" hint="">
+		<param name="default" type="bool" hint="">
+			<value>1</value>
+		</param>
+	</modules>
+	<modules id="game_info_support" enable="true" hint="">
+		<param name="default" type="bool" hint="">
+			<value>1</value>
+		</param>
+	</modules>
+	<modules id="game_check_info_support" enable="true" hint="">
+		<param name="default" type="bool" hint="">
+			<value>1</value>
+		</param>
+	</modules>
+	<modules id="idle_freq_support" enable="true" hint="">
+		<param name="default" type="bool" hint="">
+			<value>0</value>
+		</param>
+		<param name="supports" type="[u32]" hint="">
+			<value>0,1</value>
+		</param>
+	</modules>
+	<modules id="idle_holdofftime_support" enable="true" hint="">
+		<!-- ms -->
+		<param name="default" type="bool" hint="">
+			<value>300</value>
+		</param>
+	</modules>
+	<modules id="vsync_test_support" enable="true" hint="">
+		<param name="default" type="bool" hint="">
+			<value>0</value>
+		</param>
+	</modules>
+	<modules id="hsync_test_support" enable="true" hint="">
+		<param name="default" type="bool" hint="">
+			<value>0</value>
+		</param>
+	</modules>
+	<modules id="Custom_AFT" enable="true" hint="">
+			<param name="panel-coords" type="u32" hint="max_x max_y">
+				<value>23040,50688</value>
+			</param>
+			<param name="tx-rx-num" type="u32" hint="" >
+				<value>17,38</value>
+			</param>
+			<param name="grip_disable_level" type="u32" hint="" >
+				<value>6</value>
+			</param>
+			<param name="prevention,updelay_time_ms" type="u32" hint="" >
+				<value>20</value>
+			</param>
+			<param name="prevention,makeup_cnt_weight" type="u32" hint="" >
+				<value>4,1,2,2,2</value>
+			</param>
+			<param name="prevention,large_corner_range" type="u32" hint="" >
+				<value>2261,5544</value>
+			</param>
+			<param name="prevention,large_corner_judge_condition" type="u32" hint="" >
+				<value>500,400,1873,6,6</value>
+			</param>
+			<param name="prevention,trx_reject_condition" type="u32" hint="" >
+				<value>10,8,8</value>
+			</param>
+			<param name="prevention,large_judge_time_ms" type="u32" hint="" >
+				<value>500,50,30</value>
+			</param>
+			<param name="prevention,large_exit_condition" type="u32" hint="" >
+				<value>27,8,2</value>
+			</param>
+			<param name="prevention,large_exit_condition_game" type="u32" hint="" >
+				<value>100,8,1,0</value>
+			</param>
+			<param name="prevention,single_channel_width" type="u32" hint="" >
+				<value>603,603</value>
+			</param>
+			<param name="prevention,normal_tap_condition" type="u32" hint="" >
+				<value>10,350</value>
+			</param>
+			<param name="prevention,long_edge_condition" type="u32" hint="" >
+				<value>210,90,120,80</value>
+			</param>
+			<param name="prevention,long_fingerhold_condition" type="u32" hint="" >
+				<value>70,6,4,4</value>
+			</param>
+			<param name="prevention,short_edge_condition" type="u32" hint="" >
+				<value>179,78,120,100</value>
+			</param>
+			<param name="prevention,top_corner_config" type="u32" hint="" >
+				<value>170,600,480</value>
+			</param>
+			<param name="prevention,edge_swipe_config" type="u32" hint="" >
+				<value>565,665</value>
+			</param>
+			<param name="prevention,trx_strict_reject_condition" type="u32" hint="" >
+				<value>8,7,7</value>
+			</param>
+			<param name="prevention,long_strict_edge_condition" type="u32" hint="" >
+				<value>190,80</value>
+			</param>
+			<param name="prevention,long_strict_edge_condition_game" type="u32" hint="" >
+				<value>255,120</value>
+			</param>
+			<param name="prevention,short_strict_edge_condition" type="u32" hint="" >
+				<value>160,80</value>
+			</param>
+			<param name="prevention,large_strict_exit_condition" type="u32" hint="" >
+				<value>6,6</value>
+			</param>
+			<param name="prevention,large_strict_exit_condition_game" type="u32" hint="" >
+				<value>100,6</value>
+			</param>
+			<param name="prevention,corner_move_rejected" type="u32" hint="" >
+				<value>0</value>
+			</param>
+			<param name="prevention,corner_eliminate_point_support" type="u32" hint="" >
+				<value>1</value>
+			</param>
+			<param name="prevention,curved_screen_V4" type="u32" hint="" >
+				<value>1</value>
+			</param>
+			<param name="prevention,curved_screen_V4_3" type="u32" hint="" >
+				<value>1</value>
+			</param>
+			<param name="prevention,long_fingerhold_condition2" type="u32" hint="" >
+				<value>640,3209,0,0</value>
+			</param>
+			<param name="prevention,top_corner_config2" type="u32" hint="" >
+				<value>3,80,600,1124,0</value>
+			</param>
+			<param name="prevention,hor_long_top_corner_config" type="u32" hint="" >
+				<value>350,2270</value>
+			</param>
+			<param name="prevention,top_middle_config" type="u32" hint="" >
+				<value>23040,500,1600,1</value>
+			</param>
+			<param name="prevention,corner_eliminate_point_type" type="u32" hint="" >
+				<value>0,1380,2280,1</value>
+			</param>
+			<param name="prevention,long_eliminate_point_type" type="u32" hint="" >
+				<value>2,23040,16896,640,50688,300,1</value>
+			</param>
+			<param name="prevention,finger_hold_differ_size" type="u32" hint="" >
+				<value>1,0,640,300</value>
+			</param>
+			<param name="prevention,finger_hold_max_rx_exit_distance" type="u32" hint="" >
+				<value>5,640,4224</value>
+			</param>
+			<param name="prevention,max_rx_exit_distance" type="u32" hint="" >
+				<value>1,5,150,640,4224</value>
+			</param>
+			<param name="prevention,dynamic_finger_hold_exit_distance" type="u32" hint="" >
+				<value>1,640,4224,746</value>
+			</param>
+			<param name="prevention,edge_sliding_matched_support" type="u32" hint="" >
+				<value>1,200,3,0</value>
+			</param>
+			<param name="prevention,reclining_mode_support" type="u32" hint="" >
+				<value>1</value>
+			</param>
+			<param name="prevention,long_eliminate_point_type_recli" type="u32" hint="" >
+				<value>2,23040,16896,800,50688,500,1</value>
+			</param>
+			<param name="prevention,finger_hold_differ_size_recli" type="u32" hint="" >
+				<value>1,0,640,300</value>
+			</param>
+			<param name="prevention,finger_hold_max_rx_exit_distance_recli" type="u32" hint="" >
+				<value>5,640,4224</value>
+			</param>
+			<param name="prevention,max_rx_exit_distance_recli" type="u32" hint="" >
+				<value>1,5,120,640,4224</value>
+			</param>
+			<param name="prevention,dynamic_finger_hold_exit_distance_recli" type="u32" hint="" >
+				<value>1,640,4224,746</value>
+			</param>
+			<param name="prevention,edge_sliding_matched_support_recli" type="u32" hint="" >
+				<value>1,150,3,0</value>
+			</param>
+			<param name="prevention,long_edge_condition_recli" type="u32" hint="" >
+				<value>210,90,120,80</value>
+			</param>
+			<param name="prevention,long_edge_condition_game" type="u32" hint="" >
+				<value>255,90,120,80,0</value>
+			</param>
+			<param name="prevention,large_corner_judge_condition_ime" type="u32" hint="" >
+				<value>300,0,0,0,0</value>
+			</param>
+			<param name="prevention,corner_major_minor_check" type="u32" hint="" >
+				<value>180,615,25,0,1</value>
+			</param>
+			<param name="prevention,corner_point_edge_percent_thd" type="u32" hint="" >
+				<value>1200,4,25,27,1</value>
+			</param>
+			<param name="prevention,corner_point_edge_percent_thd2" type="u32" hint="" >
+				<value>40,3,20,0,0</value>
+			</param>
+			<param name="prevention,point_stability_judgment_check" type="u32" hint="" >
+				<value>2,2,10,0,1</value>
+			</param>
+			<param name="prevention,point_corner_er_min_limit_check" type="u32" hint="" >
+				<value>3,3,0,0,1</value>
+			</param>
+			<param name="up_frame_report_down_first_support" type="u32" hint="" >
+				<value>0</value>
+			</param>
+			<param name="prevention,one_frame_down_check_support" type="u32" hint="" >
+				<value>1</value>
+			</param>
+			<param name="prevention,uniform_make_up_point_v2" type="u32" hint="" >
+				<value>10,2,45,5,1</value>
+			</param>
+			<param name="prevention,corner_point_scale_info_check" type="u32" hint="" >
+				<value>400,40,5,2,1</value>
+			</param>
+			<param name="prevention,touch_point_stability_check" type="u32" hint="" >
+				<value>100,500,0,0,0</value>
+			</param>
+			<param name="prevention,middle_bottom_long_press_check" type="u32" hint="" >
+				<value>6,140,10,0,1</value>
+			</param>
+			<param name="prevention,middle_bottom_small_press_check" type="u32" hint="" >
+				<value>4,70,550,140,10</value>
+			</param>
+			<param name="prevention,middle_bottom_exit_dis" type="u32" hint="" >
+				<value>960,640,20,640,0</value>
+			</param>
+			<param name="prevention,middle_bottom_yfsr_coupling_thd" type="u32" hint="" >
+				<value>90,60,5,10,0</value>
+			</param>
+	</modules>
+</custom>
