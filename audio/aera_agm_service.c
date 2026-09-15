@@ -4,7 +4,7 @@
  *
  * Small recovery-side host for Qualcomm's device-matched AGM implementation.
  * The proprietary implementation remains on the installed stock /vendor and
- * is loaded only on Infiniti. Plugins never receive /dev/snd or partition access.
+ * is loaded only on Lighthouse. Plugins never receive /dev/snd or partition access.
  */
 #include <android/binder_ibinder.h>
 #include <android/binder_process.h>
@@ -91,7 +91,7 @@ int main(int argc, char** argv) {
     return 70;
   }
 
-  Log(ANDROID_LOG_INFO, "Infiniti stock AGM/PAL audio services are ready.");
+  Log(ANDROID_LOG_INFO, "Lighthouse stock AGM/PAL audio services are ready.");
   ABinderProcess_joinThreadPool();
   Log(ANDROID_LOG_ERROR, "Audio Binder thread pool exited unexpectedly.");
   dlclose(pal_library);

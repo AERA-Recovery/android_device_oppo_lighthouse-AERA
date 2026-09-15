@@ -175,7 +175,7 @@ if [ -d "${vendor_root}/etc/audio" ] && \
         fail "could not expose the stock audio service configuration"
 fi
 
-# Infiniti's ODM files add the TFA route and Oplus speaker protection to the
+# Lighthouse's ODM files add the TFA route and Oplus speaker protection to the
 # generic Canoe PAL configuration. Recovery does not publish the vendor SKU,
 # so PAL selects the files exposed directly under /vendor/etc.
 for config in mixer_paths resourcemanager; do
@@ -270,4 +270,4 @@ done
 # recovery's toolbox/getprop/setprop require AERA's matching system libraries.
 start_init_service aera-agm-service required
 
-echo "AERA audio: Infiniti AGM backend is ready"
+echo "AERA audio: Lighthouse AGM backend is ready"
