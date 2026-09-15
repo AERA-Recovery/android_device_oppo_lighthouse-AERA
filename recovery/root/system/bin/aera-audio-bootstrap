@@ -2,7 +2,7 @@
 # Copyright (C) 2026 AERA Recovery Project contributors
 # SPDX-License-Identifier: Apache-2.0
 #
-# Mount the installed Infiniti stock audio stack read-only and start the
+# Mount the installed lighthouse stock audio stack read-only and start the
 # services used by AERA's protected PAL playback path.
 
 PATH=/system/bin:/sbin
@@ -21,11 +21,11 @@ fail() {
 }
 
 case "$(getprop ro.product.device)" in
-    infiniti|PLK110|OP611FL1|OP60FFL1|CPH2745|CPH2747|CPH2749) ;;
+    lighthouse|PMA110|OP61BDL1|OP627CL1|CPH2841) ;;
     *)
         case "$(getprop ro.product.vendor.device)" in
-            infiniti|PLK110|OP611FL1|OP60FFL1|CPH2745|CPH2747|CPH2749) ;;
-            *) fail "this backend is only valid on Infiniti/OnePlus 15" ;;
+            lighthouse|PMA110|OP61BDL1|OP627CL1|CPH2841) ;;
+            *) fail "this backend is only valid on lighthouse/Oppo Find X9 Ultra" ;;
         esac
         ;;
 esac
@@ -93,7 +93,7 @@ fi
     fail "could not expose the stock /dsp path"
 
 # Qualcomm's audio processes are built against the framework Binder ABI from
-# the installed OP15 system. Recovery's Binder-NDK library is close enough to
+# the installed lighthouse system. Recovery's Binder-NDK library is close enough to
 # load but is not compatible with the vendor-side Binder snapshot, causing
 # audioadsprpcd and dspservice to restart before AudioPD comes up. Expose only
 # the two ABI-matched Binder libraries rather than overlaying /system.

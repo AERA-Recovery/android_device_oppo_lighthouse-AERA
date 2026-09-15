@@ -28,7 +28,7 @@ PRODUCT_PACKAGES += \
     lpunpack \
     fox_thermal_guard
 
-# Infiniti/OnePlus 15 Adreno 840 backend. The ABI-matched KGSL module,
+# Lighthouse/Oppo Find X9 Ultra Adreno 840 backend. The ABI-matched KGSL module,
 # gen80200 firmware, EGL/GLES userspace, and mapper closure remain local to
 # this SM8850 device tree; generic AERA keeps its software fallback.
 PRODUCT_VENDOR_PROPERTIES += \

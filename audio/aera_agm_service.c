@@ -65,9 +65,9 @@ static void* RegisterServiceLibrary(const char* path, const char* descriptor,
 }
 
 int main(int argc, char** argv) {
-  if (argc != 2 || strcmp(argv[1], "--infiniti-stock-agm") != 0) {
+  if (argc != 2 || strcmp(argv[1], "--lighthouse-stock-agm") != 0) {
     Log(ANDROID_LOG_ERROR,
-        "Refusing to start without the Infiniti stock AGM mode.");
+        "Refusing to start without the lighthouse stock AGM mode.");
     return 64;
   }
   if (getuid() != 0 || access(kAgmService, R_OK) != 0 ||
@@ -80,12 +80,12 @@ int main(int argc, char** argv) {
   ABinderProcess_startThreadPool();
 
   void* agm_library = RegisterServiceLibrary(
-      kAgmService, "vendor.qti.hardware.agm.IAGM/default", "Infiniti stock AGM");
+      kAgmService, "vendor.qti.hardware.agm.IAGM/default", "lighthouse stock AGM");
   if (!agm_library) {
     return 70;
   }
   void* pal_library = RegisterServiceLibrary(
-      kPalService, "vendor.qti.hardware.pal.IPAL/default", "Infiniti stock PAL");
+      kPalService, "vendor.qti.hardware.pal.IPAL/default", "lighthouse stock PAL");
   if (!pal_library) {
     dlclose(agm_library);
     return 70;

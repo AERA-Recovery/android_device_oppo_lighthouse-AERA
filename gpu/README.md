@@ -1,14 +1,14 @@
-# Infiniti GPU recovery prebuilts
+# Lighthouse GPU recovery prebuilts
 
 These proprietary ARM64 Adreno userspace libraries, kernel module, and Gen8
-firmware are copied from the owner's extracted OnePlus 15 OTA at
-`MIO-KITCHEN/OP15`. They stay in the Infiniti device tree because they are
-specific to the SM8850/`canoe` platform and its Adreno 840.
+firmware are inherited from the AERA SM8850 bring-up. They stay in the
+lighthouse device tree because they are specific to the SM8850/`canoe`
+platform and its Adreno 840.
 
-`msm_kgsl.ko` is taken from the matching OP15 vendor_dlkm image. All KGSL hard
+`msm_kgsl.ko` is taken from the matching SM8850 vendor_dlkm image. All KGSL hard
 and soft dependencies are loaded by the stock recovery module set.
 `BoardConfig.mk` requests KGSL through `TW_LOAD_VENDOR_MODULES`, using the same
-dependency-aware loader as the rest of Infiniti's vendor modules.
+dependency-aware loader as the rest of lighthouse's vendor modules.
 
 The userspace closure includes only EGL/GLES2 and the mapper/gralloc libraries
 needed by Qualcomm's Android EGL subdriver. Vulkan, SurfaceFlinger, and the rest
