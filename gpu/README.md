@@ -7,7 +7,7 @@ platform and its Adreno 840.
 
 `msm_kgsl.ko` is taken from the matching SM8850 vendor_dlkm image. All KGSL hard
 and soft dependencies are loaded by the stock recovery module set.
-`BoardConfig.mk` requests KGSL through `TW_LOAD_VENDOR_MODULES`, using the same
+`BoardConfig.mk` requests KGSL through `AERA_LOAD_VENDOR_MODULES`, using the same
 dependency-aware loader as the rest of lighthouse's vendor modules.
 
 The userspace closure includes only EGL/GLES2 and the mapper/gralloc libraries
