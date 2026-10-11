@@ -41,7 +41,6 @@ if [ "$1" = "$FDEVICE" -o "$AERA_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export AERA_USE_LZ4_BINARY=1
 	export AERA_USE_ZSTD_BINARY=1
 	export AERA_USE_DATE_BINARY=1
-	export AERA_DELETE_AROMAFM=1
 	export AERA_VANILLA_BUILD=1
 	export AERA_PRODUCT_PREFIX=AERA
 	export AERA_BUILD_STATUS=Official
@@ -52,8 +51,6 @@ if [ "$1" = "$FDEVICE" -o "$AERA_BUILD_DEVICE" = "$FDEVICE" ]; then
 	export AERA_VIRTUAL_AB_DEVICE=1
 	export AERA_ALLOW_EARLY_SETTINGS_LOAD=1
 	export AERA_USE_UPDATED_MAGISKBOOT=1
-	# Keep magiskboot for image repacking, but do not bundle the Magisk addon.
-	export AERA_DELETE_MAGISK_ADDON=1
 	export AERA_USE_FSCK_EROFS_BINARY=1
 	export AERA_USE_PATCHELF_BINARY=1
 	export AERA_SETTINGS_ROOT_DIRECTORY=/data/recovery
