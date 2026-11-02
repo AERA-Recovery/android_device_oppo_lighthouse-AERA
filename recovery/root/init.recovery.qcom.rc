@@ -26,6 +26,7 @@
 #
 
 import /init.recovery.wifi.rc
+import /init.recovery.fingerprint.rc
 
 on early-init
     # Use Qualcomm's Mapper5/SnapAlloc path for buffers shared by EGL and KMS.

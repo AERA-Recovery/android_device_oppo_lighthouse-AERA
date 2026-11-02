@@ -182,6 +182,13 @@ AERA_DEFAULT_LANGUAGE := en
 AERA_EXTRA_LANGUAGES := true
 AERA_LOAD_VENDOR_MODULES := "oplus_bsp_synaptics_tcm2.ko oplus_bsp_tp_common.ko oplus_bsp_tp_custom.ko oplus_bsp_tp_focal_common.ko oplus_bsp_tp_ft3518.ko oplus_bsp_tp_ft3658u_spi.ko oplus_bsp_tp_ft3681.ko oplus_bsp_tp_ft3683g.ko oplus_bsp_tp_ft8057p.ko oplus_bsp_tp_goodix_comnon.ko oplus_bsp_tp_gt9916.ko oplus_bsp_tp_gt9966.ko oplus_bsp_tp_ilitek7807s.ko oplus_bsp_tp_ilitek_common.ko oplus_bsp_tp_notify.ko oplus_bsp_tp_novatek_common.ko oplus_bsp_tp_nt36528_noflash.ko oplus_bsp_tp_nt36532_noflash.ko oplus_bsp_tp_nt36672c_noflash.ko oplus_bsp_tp_syna_common.ko oplus_bsp_tp_tcm_S3908.ko oplus_bsp_tp_tcm_S3910.ko oplus_bsp_tp_td4377_noflash.ko q6_notifier_dlkm.ko spf_core_dlkm.ko audpkt_ion_dlkm.ko gpr_dlkm.ko audio_pkt_dlkm.ko q6_dlkm.ko adsp_loader_dlkm.ko audio_prm_dlkm.ko q6_pdr_dlkm.ko pinctrl_lpi_dlkm.ko swr_dlkm.ko swr_ctrl_dlkm.ko snd_event_dlkm.ko wcd_core_dlkm.ko mbhc_dlkm.ko sdca_registers_dlkm.ko wcd9xxx_dlkm.ko stub_dlkm.ko swr_dmic_dlkm.ko swr_haptics_dlkm.ko hdmi_dlkm.ko lpass_cdc_wsa2_macro_dlkm.ko lpass_cdc_wsa_macro_dlkm.ko lpass_cdc_va_macro_dlkm.ko lpass_cdc_rx_macro_dlkm.ko lpass_cdc_tx_macro_dlkm.ko lpass_cdc_dlkm.ko wsa884x_dlkm.ko wsa883x_dlkm.ko wcd938x_dlkm.ko wcd938x_slave_dlkm.ko wcd939x_dlkm.ko wcd939x_slave_dlkm.ko wcd9378_dlkm.ko wcd9378_slave_dlkm.ko lpass_bt_swr_dlkm.ko machine_dlkm.ko oplus_audio_extend.ko oplus_audio_tfa98xx_v6.ko oplus_audio_daemon.ko oplus_audio_netlink.ko frpc-adsprpc.ko oplus_chg_v2.ko stm_st54se_gpio.ko nxp-nci.ko msm_kgsl.ko"
 AERA_POST_DECRYPT_MODULES := "smem-mailbox.ko cnss_prealloc.ko cnss_utils.ko cnss_plat_ipc_qmi_svc.ko cnss_nl.ko wlan_firmware_service.ko cnss2.ko rfkill.ko btpower.ko btfmcodec.ko bt_fm_swr.ko cfg80211.ko gsim.ko rmnet_mem.ko ipam.ko qca_cld3_peach_v2.ko"
+# Authenticate the AERA screen lock using existing Android fingerprints.
+AERA_SUPPORT_FINGERPRINT := 1
+# Load the fingerprint transport from the installed device, never prebuilt .ko files.
+ifeq ($(AERA_SUPPORT_FINGERPRINT),1)
+AERA_POST_DECRYPT_MODULES := "$(subst ",,$(AERA_POST_DECRYPT_MODULES)) panel_event_notifier.ko qbt_handler.ko oplus_bsp_uff_fp_driver.ko"
+endif
+
 AERA_LOAD_VENDOR_MODULES_EXCLUDE_GKI := true
 AERA_USE_SERIALNO_PROPERTY_FOR_DEVICE_ID := true
 AERA_USE_TOOLBOX := true
@@ -189,3 +196,32 @@ AERA_INPUT_BLACKLIST := "hbtp_vm"
 
 # se_omapi
 AERA_INCLUDE_OMAPI := true
+
+# Device-root files are copied unconditionally by the recovery build system.
+# Keep fingerprint binaries out of flag-off images, including incremental builds.
+ifneq ($(AERA_SUPPORT_FINGERPRINT),1)
+BOARD_RECOVERY_IMAGE_PREPARE += rm -rf \
+    $(TARGET_RECOVERY_ROOT_OUT)/system/bin/aera-fingerprint \
+    $(TARGET_RECOVERY_ROOT_OUT)/vendor/aera-fingerprint \
+    $(TARGET_RECOVERY_ROOT_OUT)/vendor/bin/aera-fingerprint \
+    $(TARGET_RECOVERY_ROOT_OUT)/vendor/bin/hw/vendor.oplus.hardware.biometrics.fingerprint@2.1-service_uff \
+    $(TARGET_RECOVERY_ROOT_OUT)/vendor/bin/hw/aera-fingerprint-service \
+    $(TARGET_RECOVERY_ROOT_OUT)/vendor/bin/aera-fingerprint-prepare \
+    $(TARGET_RECOVERY_ROOT_OUT)/init.recovery.fingerprint.rc \
+    $(TARGET_RECOVERY_ROOT_OUT)/vendor/etc/init/init.recovery.aera-fingerprint.rc \
+    $(TARGET_RECOVERY_ROOT_OUT)/vendor/etc/vintf/manifest/aera.fingerprint.xml \
+    $(TARGET_RECOVERY_ROOT_OUT)/vendor/lib64/android.frameworks.sensorservice-V1-ndk.so \
+    $(TARGET_RECOVERY_ROOT_OUT)/vendor/lib64/android.hardware.common.fmq-V1-ndk.so \
+    $(TARGET_RECOVERY_ROOT_OUT)/vendor/lib64/android.hardware.sensors-V3-ndk.so \
+    $(TARGET_RECOVERY_ROOT_OUT)/vendor/lib64/liboplus-uah-client.so \
+    $(TARGET_RECOVERY_ROOT_OUT)/vendor/lib64/libosenseaidlhalclient.so \
+    $(TARGET_RECOVERY_ROOT_OUT)/vendor/lib64/libosensenativeproxy_client.so \
+    $(TARGET_RECOVERY_ROOT_OUT)/vendor/lib64/libsensorndkbridge.so \
+    $(TARGET_RECOVERY_ROOT_OUT)/vendor/lib64/vendor.oplus.hardware.osense.client-V1-ndk.so \
+    $(TARGET_RECOVERY_ROOT_OUT)/vendor/lib64/vendor.oplus.hardware.performance-V1-ndk.so \
+    $(TARGET_RECOVERY_ROOT_OUT)/vendor/lib64/vendor.oplus.hardware.touch-V1-ndk.so \
+    $(TARGET_RECOVERY_ROOT_OUT)/vendor/lib64/vendor.oplus.hardware.urcc-V1-ndk.so \
+    $(TARGET_RECOVERY_ROOT_OUT)/vendor/lib64/android.hardware.biometrics.fingerprint-V3-ndk.so \
+    $(TARGET_RECOVERY_ROOT_OUT)/vendor/lib64/android.hardware.biometrics.common-V3-ndk.so \
+    $(TARGET_RECOVERY_ROOT_OUT)/vendor/lib64/android.hardware.keymaster-V4-ndk.so
+endif
